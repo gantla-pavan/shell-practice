@@ -8,4 +8,4 @@ NAME=DevOps
 
 SUM=$(($NUMBER1+$NUMBER2+$NAME))
 
-ECHO "SUM is: ${SUM}"
+ECHO :"SUM is: ${SUM}"
