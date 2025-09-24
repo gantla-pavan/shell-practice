@@ -23,5 +23,5 @@ dnf install nginx -y
  VALIDATION $? "Nginx"
  
 
-dnf install python3-y
+dnf install python3 -y
 VALIDATION $? "python3"
