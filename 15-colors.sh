@@ -22,6 +22,7 @@ if [ $? -ne 0 ]; then
     VALIDATION $? "MYSQL"
 else 
     echo -e "MYSQL already exist...$Y SKIPPING $N"
+fi
 
 dnf list installed  Nginx 
 if [ $? -ne 0 ]; then
