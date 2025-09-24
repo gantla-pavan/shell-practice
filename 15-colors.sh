@@ -37,4 +37,4 @@ fi
     VALIDATION $? "python3"
 else
     echo -e "python3 already exists...$Y SKIPPING $N"
-    fi
+ fi
