@@ -24,15 +24,15 @@ else
     echo -e "MYSQL already exist...$Y SKIPPING $N"
 
 dnf list installed  Nginx 
-if [$? -ne 0]; then
+if [ $? -ne 0 ]; then
     dnf install nginx -y
     VALIDATION $? "Nginx"
 else
     echo -e "Nginx already exist...$Y SKIPPING $N"
 fi
-
+ 
  dnf list installed python3
-    if [$? -ne 0 ]; then
+    if [ $? -ne 0 ]; then
     dnf install python3 -y
     VALIDATION $? "python3"
 else
