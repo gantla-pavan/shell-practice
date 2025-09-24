@@ -16,13 +16,12 @@ else
     echo "Installing $2 is success"
 fi
 }
-dnf installing mysql -y
+dnf install mysql -y
 VALIDATION $? "MYSQL"
 
-dnf installing nginx -y
+dnf install nginx -y
  VALIDATION $? "Nginx"
  
 
 dnf install mongodb-mongosh -y
-Vlidation $? "Mongosh
-
+Vlidation $? "Mongosh"
