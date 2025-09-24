@@ -24,4 +24,4 @@ dnf install nginx -y
  
 
 dnf install mongodb-mongosh -y
-Vlidation $? "Mongodb-mongosh"
+Vlidation $? "Mongodb"
