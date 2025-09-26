@@ -40,6 +40,6 @@ do
         dnf install $package -y
         VALIDATE $? "$package"
     else
-        echo -e "$package is already installed ...$Y SKIPPING $N""
+        echo -e "$package is already installed ...$Y SKIPPING $N"
 
 done
