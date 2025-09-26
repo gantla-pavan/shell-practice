@@ -11,7 +11,7 @@ SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOGS_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 
 mkdir -p "$LOGS_FOLDER"
- echo "script started executed at $(date)"
+ echo "script started executed at $(date)" | tee -a $LOGS_FILE
 
 if [ $USERID -ne 0 ]; then
     echo "ERROR:: Please run this script with the root privelege"
@@ -20,10 +20,12 @@ fi
 
 VALIDATE(){
  if [ $1 -ne 0 ]; then
-    echo -e "ERROR:: Installing $2...$R is failure $N"
+    echo -e "Installing $2...$R is FAILURE $N" | tee -a $LOGS_FILE
+
         exit 1
 else
-    echo -e "Installing $2...$G is success $N"
+    echo -e "Installing $2...$G is SUCCESS $N" | tee -a $LOGS_FILE
+
 fi
 }
 dnf list installed mysql &>>$LOGS_FILE
@@ -31,7 +33,8 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y &>>$LOGS_FILE
     VALIDATE $? "MYSQL"
 else 
-    echo -e "MYSQL already exist...$Y SKIPPING $N"
+    echo -e "MYSQL already exist...$Y SKIPPING $N" | tee -a $LOGS_FILE
+
 fi
 
 dnf list installed  Nginx &>>$LOGS_FILE
@@ -39,7 +42,8 @@ if [ $? -ne 0 ]; then
     dnf install nginx -y &>>$LOGS_FILE
     VALIDATE $? "Nginx"
 else
-    echo -e "Nginx already exist...$Y SKIPPING $N"
+    echo -e "Nginx already exist...$Y SKIPPING $N" | tee -a $LOGS_FILE
+
 fi
 
  dnf list installed python3 &>>$LOGS_FILE
@@ -47,5 +51,7 @@ fi
     dnf install python3 -y &>>$LOGS_FILE
     VALIDATE $? "python3"
 else
-    echo -e "python3 already exists...$Y SKIPPING $N"
+    echo -e "python3 already exists...$Y SKIPPING $N" | tee -a $LOGS_FILE
+git add . ; git commit -m "some message"; git push origin main
+
 fi
