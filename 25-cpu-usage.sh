@@ -6,4 +6,4 @@ While IFS= read -r line
 do
     echo "Line: $Line"
 
-done<<< $DISK_USAGE
+done <<< $DISK_USAGE
