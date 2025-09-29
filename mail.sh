@@ -3,7 +3,7 @@ TO_ADDRESS=$1
 SUBJECT=$2
 ALERT_TYPE=$3
 MESSAGE_BODY=$4
-FORMATED_BODY=$(printf '%s\n'"$MESSAGE_BODY" | sed -e "s/'/'\\\\''/g; ls/^/'/; \$s/\$/'/")
+FORMATED_BODY=$(printf '%s\n'"$MESSAGE_BODY" | sed -e 's/[]\/$*.^[]/\\&/g')
 IP_ADDRESS=$5
 To_TEAM=$6
 
